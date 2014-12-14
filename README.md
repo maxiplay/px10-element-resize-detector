@@ -76,5 +76,5 @@ px10-element-resize-detector element.
 ##Install 
 
 
-##License
-MIT
+## License
+[MIT](LICENSE)
