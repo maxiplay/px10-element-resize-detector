@@ -1,0 +1,7 @@
+{
+  "name": "px10-element-resize-detector#gh-pages",
+  "private": true,
+  "dependencies": {
+    "px10-element-resize-detector": "px10/px10-element-resize-detector#master"
+  }
+}

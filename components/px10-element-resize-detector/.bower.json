@@ -1,0 +1,31 @@
+{
+  "name": "px10-element-resize-detector",
+  "authors": [
+    "Emad Eid <emadeid@gmail.com>"
+  ],
+  "description": "fires resize event when parent is resized.",
+  "keywords": [
+    "Element",
+    "resize",
+    "detection"
+  ],
+  "main": "px10-element-resize-detector",
+  "license": "MIT",
+  "homepage": "https://github.com/px10/px10-element-resize-detector/",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.5.1"
+  },
+  "devDependencies": {
+    "polymer-test-tools": "Polymer/polymer-test-tools##^2.0.0-rc1"
+  },
+  "_release": "2b914826c3",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "2b914826c3582d2bdd60c6b103783605d3718af9"
+  },
+  "_source": "git://github.com/px10/px10-element-resize-detector.git",
+  "_target": "master",
+  "_originalSource": "px10/px10-element-resize-detector",
+  "_direct": true
+}
