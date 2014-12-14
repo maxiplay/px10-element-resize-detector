@@ -1,6 +1,6 @@
 <!-- MIT Licensed -->
 
-<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../polymer/polymer.html">
 
 <!--
 Add this element to any other node you need to be notified when its size changes. The node can be inside a
@@ -17,14 +17,20 @@ or inside other elements
     </px10-element-resize-detector>
 
 @element px10-element-resize-detector
-@blurb Element that provides a resize event when parent gets resized.
-@status alpha
-@homepage https://github.com/eeid26/px10-node-resize-detector/
+@homepage https://github.com/PX10/px10-element-resize-detector
 -->
 
 <!--
 Fired when the target element gets resized.
 @event resize
+-->
+
+<!--
+If this element is used inside other elements set this property to {{}} otherwise do not set
+this property.
+@property target
+@type Node
+@default undefined
 -->
 
 <polymer-element name="px10-element-resize-detector" attributes="target" constructor="PX10ElementResizeDetector">
