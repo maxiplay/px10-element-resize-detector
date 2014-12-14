@@ -72,9 +72,16 @@ px10-element-resize-detector element.
 </polymer-element>
 
 ```
+##Documentation 
+[here](http://px10.github.io/px10-element-resize-detector/components/px10-element-resize-detector/)
+
+##Demos
+[Used inside other polymer element]{http://px10.github.io/px10-element-resize-detector/components/px10-element-resize-detector/demos/in_other_elements.html}
+
+[Used inside in a node in dom]{http://px10.github.io/px10-element-resize-detector/components/px10-element-resize-detector/demos/in_other_elements.html}
 
 ##Install 
-
+Not on bower yet. 
 
 ## License
 [MIT](LICENSE)
