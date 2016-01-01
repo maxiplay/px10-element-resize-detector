@@ -7,14 +7,14 @@ Add this element to any other node you need to be notified when its size changes
 another polymer element or on the page.
 
 ##### Example
-    <div>
-          <px10-element-resize-detector></px10-element-resize-detector>
-    </div>
+<div>
+<px10-element-resize-detector></px10-element-resize-detector>
+</div>
 
 or inside other elements
 
-    <px10-element-resize-detector target="{{}}" on-resize="{{resize}}">
-    </px10-element-resize-detector>
+<px10-element-resize-detector target="{{}}" on-resize="{{resize}}">
+</px10-element-resize-detector>
 
 @element px10-element-resize-detector
 @homepage https://github.com/PX10/px10-element-resize-detector
@@ -32,34 +32,111 @@ this property.
 @type Node
 @default undefined
 -->
-
-<polymer-element name="px10-element-resize-detector" attributes="target" constructor="PX10ElementResizeDetector">
-
-<template>
+<dom-module id="px10-element-resize-detector">
 
     <style>
+		:host {
+			display: block;
+			position: relative;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			pointer-events: none;
+			overflow: hidden;
+		}
 
-        :host {
-            display: block;
-            position: relative;
-            left:0;
-            top:0;
-            width:100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        object {
-            height: 100%;
-            width: 100%;
-        }
+		object {
+			height: 100%;
+			width: 100%;
+		}
 
     </style>
-    <object type="text/html" on-load={{loaded}} id="detector"></object>
-</template>
 
-<script src="px10-element-resize-detector.js"></script>
+    <template>
+        <object type="text/html" on-load="loaded" id="detector"></object>
+    </template>
 
-</polymer-element>
+    <!-- <script src="px10-element-resize-detector-prototype.js"></script> -->
+    <script>
+        Polymer({
+            is : "px10-element-resize-detector",
+
+            /**
+             * `target` If this element is used inside other elements set this property to {{}} otherwise do not set
+             *  this property.
+             *
+             * @property target
+             * @type object
+             * @default undefined
+             *
+             */
+            target : undefined,
+            _defaultView : undefined,
+            _handler : undefined,
+            _handlerInstalled : false,
+
+            loaded : function(event) {
+                if (event.target) {
+                    this._defaultView = event.target.contentDocument.defaultView;
+                } else {
+                    this._defaultView = event;
+                }
+                if (this._defaultView && this._handler && !this._handlerInstalled) {
+                    this._defaultView.addEventListener('resize', this._handler);
+                    this._handlerInstalled = true;
+                }
+            },
+            ready : function() {
+                if (!this.target) {
+                    this.target = this.$.detector.parentNode;
+                    //.host.parentNode;
+                    // todo: We should just make it a requirement to make the Element to be monitored to be relative.
+                    if (this.target) {
+                        this.fromStaticToRelative(this.target);
+                        this.style.position = 'absolute';
+                    }
+                }
+            },
+            _dispatch : function() {
+                this.fire("resize", undefined, this, true, false);
+            },
+            attached : function() {
+                this._handler = this._dispatch.bind(this);
+                var detector = this.$.detector;
+                var contentDocument;
+                // IE throws exception when this element is a child of a regular dom element. Once the data
+                // is set its ok.
+                try {
+                    contentDocument = detector.contentDocument;
+                } catch(error) {
+                }
+
+                if (!contentDocument) {
+                    this.async(function() {
+                        detector.data = 'about:blank';
+                    });
+                } else {
+                    this.loaded(detector.contentDocument.defaultView);
+                }
+            },
+            detached : function() {
+                if (this._defaultView && this._handler) {
+                    this._defaultView.removeEventListener('resize', this._handler);
+                }
+            },
+
+            fromStaticToRelative : function(node) {
+                if (node) {
+                    var computedStyle = getComputedStyle(node);
+                    if (computedStyle && computedStyle.position == 'static') {
+                        node.style.position = 'relative';
+                    }
+                }
+            }
+        });
+    </script>
+
+</dom-module>
+

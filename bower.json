@@ -1,6 +1,6 @@
 {
     "name": "px10-element-resize-detector",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "authors": [
         "Emad Eid <emadeid@gmail.com>"
     ],
@@ -14,7 +14,7 @@
     "license": "MIT",
     "homepage": "https://github.com/px10/px10-element-resize-detector/",
     "dependencies": {
-        "polymer": "Polymer/polymer#^0.5.1"
+        "polymer": "Polymer/polymer#^1.2.0"
     },
     "devDependencies": {
         "polymer-test-tools": "Polymer/polymer-test-tools##^2.0.0-rc1"

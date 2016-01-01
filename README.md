@@ -39,37 +39,50 @@ monitor and enables and disables the resize monitoring with this attribute by cr
 px10-element-resize-detector element.
 
 ```html
-<polymer-element name="resize-test1" attributes="monitor">
-
-    <template>
+    <dom-module id="resize-test1">
 
         <style>
-            :host {
-                display: block;
-            }
+			:host {
+				display: block;
+			}
         </style>
-        <div id="message">Did not receive any resize messages.</div>
-        <template if="{{monitor}}">
-            <px10-element-resize-detector target="{{}}" on-resize="{{resize}}"></px10-element-resize-detector>
+
+        <template>
+
+            <div id="message">
+                Did not receive any resize messages.
+            </div>
+            <template if="{{monitor}}">
+                <px10-element-resize-detector target="{{}}" on-resize="{{resize}}"></px10-element-resize-detector>
+            </template>
+            <content></content>
         </template>
-        <content></content>
-    </template>
-    <script>
-        Polymer({
-            monitor:false,
-            resize:function(event){
-                this.$.message.innerHTML="I was resized "+Date.now() / 1000 + ' seconds from the epoch';
-            },
-            monitorChanged:function(oldValue,newValue){
-                if (!newValue) {
-                    this.removeAttribute("monitor");
-                }else{
-                    this.setAttribute("monitor",'');
+        <script>
+            Polymer({
+
+                is : "resize-test1",
+
+                properties : {
+
+                    monitor : {
+                        type : Boolean,
+                        value : false
+                    }
+                },
+
+                resize : function(event) {
+                    this.$.message.innerHTML = "I was resized " + Date.now() / 1000 + ' seconds from the epoch';
+                },
+                monitorChanged : function(oldValue, newValue) {
+                    if (!newValue) {
+                        this.removeAttribute("monitor");
+                    } else {
+                        this.setAttribute("monitor", '');
+                    }
                 }
-            }
-        });
-    </script>
-</polymer-element>
+            });
+        </script>
+    </dom-module>
 
 ```
 ##Documentation 

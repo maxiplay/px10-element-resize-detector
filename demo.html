@@ -69,7 +69,7 @@
 </section>
 
 <script>
-    addEventListener('polymer-ready', function(event) {
+    addEventListener('WebComponentsReady', function(event) {
         var divSizeDetector = document.querySelector("#targetDiv px10-element-resize-detector");
         var listSizeDetector = document.querySelector("#list px10-element-resize-detector");
 
@@ -98,7 +98,7 @@
 
         var time = document.getElementById('resize_time');
         listSizeDetector.addEventListener("resize",function(event){
-            time.innerHTML = Date.now() / 1000 + ' seconds from the epoch'
+            time.innerHTML = Date.now() / 1000 + ' seconds from the epoch';
         });
 
     });
