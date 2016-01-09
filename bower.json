@@ -15,7 +15,7 @@
   "license": "MIT",
   "homepage": "https://github.com/maxiplay/px10-element-resize-detector/",
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.2.0"
+    "polymer": "Polymer/polymer#^1.0.0"
   },
   "devDependencies": {
     "polymer-test-tools": "Polymer/polymer-test-tools##^2.0.0-rc1"
