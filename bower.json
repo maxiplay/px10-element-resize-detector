@@ -1,24 +1,23 @@
 {
-    "name": "px10-element-resize-detector",
-    "version": "0.0.3",
-    "authors": [
-        "Emad Eid <emadeid@gmail.com>",
-        "Maxime Dhalluin <maxime.dhalluin@gmail.com>"
-    ],
-    "description": "fires resize event when parent is resized.",
-    "keywords": [
-        "Element",
-        "resize",
-        "detection"
-    ],
-    "main": "px10-element-resize-detector",
-    "license": "MIT",
-    "homepage": "https://github.com/maxiplay/px10-element-resize-detector/",
-    "dependencies": {
-        "polymer": "Polymer/polymer#^1.2.0"
-    },
-    "devDependencies": {
-        "polymer-test-tools": "Polymer/polymer-test-tools##^2.0.0-rc1"
-    }
-
+  "name": "px10-element-resize-detector",
+  "version": "0.0.5",
+  "authors": [
+    "Emad Eid <emadeid@gmail.com>",
+    "Maxime Dhalluin <maxime.dhalluin@gmail.com>"
+  ],
+  "description": "fires resize event when parent is resized.",
+  "keywords": [
+    "Element",
+    "resize",
+    "detection"
+  ],
+  "main": "px10-element-resize-detector",
+  "license": "MIT",
+  "homepage": "https://github.com/maxiplay/px10-element-resize-detector/",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.0"
+  },
+  "devDependencies": {
+    "polymer-test-tools": "Polymer/polymer-test-tools##^2.0.0-rc1"
+  }
 }
